@@ -5,6 +5,8 @@ import exphbs from "express-handlebars";
 import { resolve } from "path";
 import { pokeRouter } from "./app.pokeRouter";
 
+const helpers = require("handlebars-helpers")(["string"]);
+
 config({ path: "variables.env" });
 
 //=|*Env Variables*|=//
@@ -15,7 +17,8 @@ const app = express();
 
 //=|*Middlewares*|=//
 //=|static folders/files/=>
-app.use(express.static(resolve(process.cwd(), "/public")));
+// app.use(express.static(resolve(process.cwd(), "/public")));
+app.use(express.static("public"));
 
 //=|Body Parser/=>
 app.use(urlencoded({ extended: false }));
@@ -25,14 +28,11 @@ app.set("views", resolve(process.cwd(), "src", "views"));
 app.engine(".hbs", exphbs({ extname: ".hbs" }));
 app.set("view engine", ".hbs");
 
-
-
 //=|*Routes*|=//
 app.use(pokeRouter);
 
-
 //=|*Output*|=//
-app.listen(PORT, ()=>{
+app.listen(PORT, () => {
     // eslint-disable-next-line no-console
     console.log(`The server is running on : http://localhost:${PORT}`);
 });

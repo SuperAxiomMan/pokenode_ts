@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P");
+body {
+    background-image: url("https://hdqwalls.com/download/8-bit-nature-lu-2048x2048.jpg");
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #83cb53;
+}
+
+.small-text {
+    font-size: 0.7rem;
+}
+
+.press-start {
+    font-family: "Press Start 2P";
+}
+
+/* Types Color */
+.bug {
+    background-color: #a8b820;
+}
+.normal {
+    background-color: #a8a77a;
+}
+.fire {
+    background-color: #ee8130;
+}
+.water {
+    background-color: #6390f0;
+}
+.electric {
+    background-color: #f7d02c;
+}
+.grass {
+    background-color: #7ac74c;
+}
+.ice {
+    background-color: #96d9d6;
+}
+.fighting {
+    background-color: #c22e28;
+}
+.poison {
+    background-color: #a33ea1;
+}
+.ground {
+    background-color: #e2bf65;
+}
+.flying {
+    background-color: #a98ff3;
+}
+.psychic {
+    background-color: #f95587;
+}
+.rock {
+    background-color: #b6a136;
+}
+.ghost {
+    background-color: #735797;
+}
+.dragon {
+    background-color: #6f35fc;
+}
+.dark {
+    background-color: #705746;
+}
+.steel {
+    background-color: #b7b7ce;
+}
+.fairy {
+    background-color: #d685ad;
+}

@@ -1,0 +1,15 @@
+<div class="container text-center">
+  <div class="m-3">
+    <h1>{{capitalize pokemon.name}}</h1>
+
+    <img src="{{pokemon.sprites.front_default}}" alt="{{pokemon.name}}" />
+
+    <ul class="list-group">
+      {{#each pokemon.types}}
+        <li class="list-group-item">{{this.type.name}}</li>
+      {{/each}}
+    </ul>
+
+    <a class="btn btn-primary m-5" href="/list_v1">New Search</a>
+  </div>
+</div>

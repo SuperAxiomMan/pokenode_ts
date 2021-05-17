@@ -13,7 +13,7 @@ class PokeServices {
             console.log(e);
         }
     };
-    static getSinglePokemon = async (pokemon = "1") => {
+    static getSinglePokemon = async (pokemon: any) => {
         try {
             const res = await fetch(
                 `https://pokeapi.co/api/v2/pokemon/${pokemon}`
@@ -23,6 +23,22 @@ class PokeServices {
         } catch (e) {
             console.log(e);
         }
+    };
+
+    static getDetailedPokemonList = async (limit: number) => {
+        let resultFiltered = [];
+        for (let i = 1; i < limit - 1; i++) {
+            let resAPI = await PokeServices.getSinglePokemon(i);
+            resultFiltered.push({
+                id: resAPI.id,
+                name: resAPI.name,
+                sprite: resAPI.sprites["front_default"],
+                artwork:resAPI.sprites["other"]["official-artwork"]["front_default"],
+                types: resAPI.types
+            });
+        }
+
+        return resultFiltered;
     };
 }
 

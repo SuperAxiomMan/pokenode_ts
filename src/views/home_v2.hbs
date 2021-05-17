@@ -1,0 +1,66 @@
+<div class="container mt-2">
+
+  <div class="pokedex row small-text">
+    {{#each pokemons}}
+      <div class="card col-2 text-center">
+        <img class="card-img-top" src="{{this.sprite}}" alt="Nancy Osgood" />
+        <div class="card-body">
+          <span class="card-title press-start">{{capitalize this.name}}</span>
+        </div>
+        <div class="card-footer">
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-toggle="modal"
+            data-target="#poke-{{this.id}}"
+          >View</button>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>
+
+{{#each pokemons}}
+
+  <div
+    class="modal fade"
+    id="poke-{{this.id}}"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="{{this.name}}"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5
+            class="modal-title press-start"
+            id="{{this.name}}"
+          >{{this.name}}</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <figure class="figure">
+            <img
+              src={{this.artwork}}
+              class="figure-img img-fluid rounded"
+              alt="{{this.name}}-official-artwork"
+            />
+          </figure>
+        </div>
+        <div class="modal-footer align-self-center">
+            {{#each this.types}}
+              <span class="border p-1 rounded {{this.type.name}}">{{capitalize this.type.name}}</span>
+            {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+{{/each}}
