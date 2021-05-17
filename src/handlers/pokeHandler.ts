@@ -1,17 +1,17 @@
-import { Request, Response } from "express";
-import { PokeServices } from "../services/pokeServices";
+import { Request, Response } from 'express';
+import { PokeServices } from '../services/pokeServices';
 
 class PokeHandler {
     //=|Root Page Response/=>
     static root = (req: Request, res: Response) => {
-        res.render("home");
+        res.render('home');
     };
     //=|Simple List/=>
     static getSimpleList = async (req: Request, res: Response) => {
         try {
             const pokemons = await PokeServices.getAllPokemon();
             //console.log(pokemons.results[0]);
-            res.render("home", { pokemons });
+            res.render('home', { pokemons });
         } catch (e) {
             console.log(e);
         }
@@ -19,9 +19,9 @@ class PokeHandler {
     //=|Detailed List/=>
     static getDetailedList = async (req: Request, res: Response) => {
         try {
-            let pokemons = await PokeServices.getDetailedPokemonList(20);
+            const pokemons = await PokeServices.getDetailedPokemonList(20);
             //console.log(pokemons);
-            res.render("home_v2", { pokemons });
+            res.render('home_v2', { pokemons });
         } catch (e) {
             console.log(e);
         }
@@ -34,7 +34,7 @@ class PokeHandler {
     };
     //=|Not Found Page/=>
     static notFound = (req: Request, res: Response) => {
-        res.render("not-found");
+        res.render('not-found');
     };
     //=|Single Pokemon View/=>
     static pokemonDetail = async (req: Request, res: Response) => {
@@ -43,8 +43,8 @@ class PokeHandler {
                 req.params.pokemon
             );
             pokemon
-                ? res.render("single-view", { pokemon })
-                : res.redirect("not-found");
+                ? res.render('single-view', { pokemon })
+                : res.redirect('not-found');
         } catch (e) {
             console.log(e);
         }

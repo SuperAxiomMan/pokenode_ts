@@ -1,10 +1,10 @@
-import fetch from "node-fetch";
+import fetch from 'node-fetch';
 
 class PokeServices {
     static getAllPokemon = async () => {
         try {
             const res = await fetch(
-                "https://pokeapi.co/api/v2/pokemon?limit=151"
+                'https://pokeapi.co/api/v2/pokemon?limit=151'
             );
             const json = await res.json();
             console.log(json.results);
@@ -26,14 +26,15 @@ class PokeServices {
     };
 
     static getDetailedPokemonList = async (limit: number) => {
-        let resultFiltered = [];
+        const resultFiltered = [];
         for (let i = 1; i < limit - 1; i++) {
-            let resAPI = await PokeServices.getSinglePokemon(i);
+            const resAPI = await PokeServices.getSinglePokemon(i);
             resultFiltered.push({
                 id: resAPI.id,
                 name: resAPI.name,
-                sprite: resAPI.sprites["front_default"],
-                artwork:resAPI.sprites["other"]["official-artwork"]["front_default"],
+                sprite: resAPI.sprites.front_default,
+                artwork:
+                    resAPI.sprites.other['official-artwork'].front_default,
                 types: resAPI.types
             });
         }

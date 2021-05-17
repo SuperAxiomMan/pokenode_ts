@@ -1,8 +1,9 @@
 <div class="container bg-light">
-<h1>First Generation</h1>
-<ol class="pokedex row">
-    {{#each pokemons.results}}
-    <li class="col-md-2"><a class="btn btn-outline-secondary m-1" href="/{{this.name}}">{{capitalize this.name}}</a></li>
-    {{/each}}
-</ol>
+    <h1>First Generation</h1>
+    <ol class="pokedex row">
+        {{#each pokemons.results}}
+        <li class="col-md-2"><a class="btn btn-outline-secondary m-1" href="/{{this.name}}">{{capitalize this.name}}</a>
+        </li>
+        {{/each}}
+    </ol>
 </div>
