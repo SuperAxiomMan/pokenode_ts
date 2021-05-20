@@ -4,8 +4,8 @@ import express, { urlencoded } from 'express';
 import exphbs from 'express-handlebars';
 import { resolve } from 'path';
 import { pokeRouter } from './app.pokeRouter';
-
-const helpers = require('handlebars-helpers')(['string']);
+import helpers from 'handlebars-helpers';
+const inHelpers = helpers();
 
 config({ path: 'variables.env' });
 
